@@ -210,7 +210,7 @@ class RequestHandlerTest extends TestCase
     /**
      * @test
      */
-    public function it_should_handle_the_request_when_the_path_does_not_have_a_preceeding_slash()
+    public function it_should_handle_the_request_when_the_path_does_not_have_a_preceding_slash()
     {
         $handler = new RequestHandler('GET', 'test');
         $handler->when(function () {

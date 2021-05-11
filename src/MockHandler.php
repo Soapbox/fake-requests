@@ -2,8 +2,7 @@
 
 namespace JSHayes\FakeRequests;
 
-use GuzzleHttp\Promise;
-use GuzzleHttp\Psr7\Uri;
+use GuzzleHttp\Promise\Create;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Support\Collection;
 use Psr\Http\Message\RequestInterface;
@@ -172,12 +171,12 @@ class MockHandler
         foreach ($this->handlers as $key => $handler) {
             if ($handler->shouldHandle($request, $options)) {
                 $this->handlers->pull($key);
-                return Promise\promise_for($handler->handle($request, $options));
+                return Create::promiseFor($handler->handle($request, $options));
             }
         }
 
         if ($this->allowsUnexpected) {
-            return Promise\promise_for(new Response());
+            return Create::promiseFor(new Response());
         }
 
         throw new UnhandledRequestException($request);

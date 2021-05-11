@@ -55,7 +55,7 @@ class RequestHandler
      * Determine if this request should be handled
      *
      * @param \Psr\Http\Message\RequestInterface $request
-     * @param arrar $options
+     * @param array $options
      * @return bool
      */
     public function shouldHandle(RequestInterface $request, array $options): bool

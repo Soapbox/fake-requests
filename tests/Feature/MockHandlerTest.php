@@ -16,9 +16,9 @@ class MockHandlerTest extends TestCase
     {
         $factory = new ClientFactory();
         $factory->setHandler($handler);
-        $client = $factory->make($options);
-        $client->getConfig('handler')->remove('http_errors');
-        return $client;
+
+        $options['http_errors'] = false;
+        return $factory->make($options);
     }
 
     /**
@@ -155,7 +155,7 @@ class MockHandlerTest extends TestCase
     /**
      * @test
      */
-    public function it_matches_paths_with_preceeding_slash()
+    public function it_matches_paths_with_preceding_slash()
     {
         $client = $this->makeClient($mockHandler = new MockHandler());
         $mockHandler->get('test')->respondWith(200);

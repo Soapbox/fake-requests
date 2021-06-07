@@ -28,7 +28,9 @@ class ClientFactoryTest extends TestCase
     public function creating_a_client_with_a_handler_uses_that_handler()
     {
         $factory = new ClientFactory();
-        $handler = function () {};
+        $handler = function () {
+            //
+        };
         $client = $factory->make(['handler' => $handler]);
 
         $this->assertSame($handler, $client->getConfig('handler'));
@@ -40,7 +42,8 @@ class ClientFactoryTest extends TestCase
     public function creating_a_client_with_no_handler_and_a_factory_handler_override_uses_the_handler_stack_with_the_factory_handler()
     {
         $factory = new ClientFactory();
-        $handler = function () {};
+        $handler = function () {
+        };
         $factory->setHandler($handler);
         $client = $factory->make();
 
@@ -58,7 +61,8 @@ class ClientFactoryTest extends TestCase
     {
         $factory = new ClientFactory();
         $handlerStack = HandlerStack::create();
-        $handler = function () {};
+        $handler = function () {
+        };
         $factory->setHandler($handler);
         $client = $factory->make(['handler' => $handlerStack]);
 
@@ -75,9 +79,11 @@ class ClientFactoryTest extends TestCase
     public function creating_a_client_with_a_handler_and_a_factory_handler_override_uses_the_factory_handler()
     {
         $factory = new ClientFactory();
-        $handler = function () {};
+        $handler = function () {
+        };
         $factory->setHandler($handler);
-        $client = $factory->make(['handler' => function () {}]);
+        $client = $factory->make(['handler' => function () {
+        }]);
 
         $this->assertSame($handler, $client->getConfig('handler'));
     }

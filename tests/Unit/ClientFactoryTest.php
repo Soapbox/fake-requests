@@ -43,6 +43,7 @@ class ClientFactoryTest extends TestCase
     {
         $factory = new ClientFactory();
         $handler = function () {
+            //
         };
         $factory->setHandler($handler);
         $client = $factory->make();
@@ -62,6 +63,7 @@ class ClientFactoryTest extends TestCase
         $factory = new ClientFactory();
         $handlerStack = HandlerStack::create();
         $handler = function () {
+            //
         };
         $factory->setHandler($handler);
         $client = $factory->make(['handler' => $handlerStack]);
@@ -80,9 +82,11 @@ class ClientFactoryTest extends TestCase
     {
         $factory = new ClientFactory();
         $handler = function () {
+            //
         };
         $factory->setHandler($handler);
         $client = $factory->make(['handler' => function () {
+            //
         }]);
 
         $this->assertSame($handler, $client->getConfig('handler'));

@@ -25,6 +25,7 @@ class RequestHandler
         $this->path = ltrim($this->uri->getPath(), '/');
 
         $this->respondWith(function () {
+            //
         });
         $this->when(function () {
             return true;

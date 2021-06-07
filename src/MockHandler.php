@@ -2,8 +2,8 @@
 
 namespace JSHayes\FakeRequests;
 
-use GuzzleHttp\Promise\Create;
 use GuzzleHttp\Psr7\Response;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Support\Collection;
 use Psr\Http\Message\RequestInterface;
 use GuzzleHttp\Promise\PromiseInterface;
@@ -17,7 +17,7 @@ class MockHandler
 
     public function __construct()
     {
-        $this->handlers = new Collection();
+        $this->handlers = collect();
     }
 
     /**

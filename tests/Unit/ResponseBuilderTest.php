@@ -71,7 +71,7 @@ class ResponseBuilderTest extends TestCase
     public function it_can_set_the_body_of_the_response_to_json_serializable_object()
     {
         $builder = new ResponseBuilder();
-        $body = new class () implements JsonSerializable {
+        $body = new class() implements JsonSerializable {
             public function jsonSerialize(): array
             {
                 return ['test' => 'value'];
